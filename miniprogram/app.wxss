@@ -7,5 +7,17 @@ left:0;
 right:0;
 }
 page{
-  background-color: #eee;
+  background-color: #F8F4E3;
+}
+
+.my_bottom_line{
+  border-bottom: 4px solid #F8F4E3 !important;
+}
+
+.toRightTag{
+  margin-right: 5rpx;
+  width: 210rpx;
+}
+.flex{
+  display: flex;
 }

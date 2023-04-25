@@ -1,12 +1,31 @@
-// pages/teacher/select.js
+// pages/teacher/selected.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name: '',
-    code: ''
+
+  },
+
+  toPaperDesign(event){
+    console.log(event)
+    if(event.target.dataset.state == 2){
+      
+      wx.navigateTo({
+        url: '/pages/teacher/analysis',
+        success: function(res){
+          res.eventChannel.emit('sendData',{data:true})
+        }
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/teacher/updatePaper',
+        success: function(res){
+          res.eventChannel.emit('sendData',{data:true})
+        }
+      })
+    }
   },
 
   /**
@@ -14,12 +33,6 @@ Page({
    */
   onLoad(options) {
 
-  },
-
-  jumpToClass(classId){
-    wx.navigateTo({
-      url: '/pages/teacher/selected',
-    })
   },
 
   /**

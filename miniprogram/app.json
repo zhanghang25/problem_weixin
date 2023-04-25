@@ -3,19 +3,27 @@
     "pages/index/index",
     "pages/teacher/index",
     "pages/teacher/create",
-    "pages/teacher/select"
+    "pages/teacher/select",
+    "pages/teacher/selected",
+    "pages/teacher/paperDesign",
+    "pages/teacher/updatePaper",
+    "pages/teacher/confirm",
+    "pages/teacher/analysis",
+    "pages/teacher/detail"
   ],
   "usingComponents": {
-    "van-field":"@vant/weapp/field/index",
-    "van-cell-group":"@vant/weapp/cell-group/index",
-    "van-cell":"@vant/weapp/cell/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-cell": "@vant/weapp/cell/index",
     "van-radio": "@vant/weapp/radio/index",
     "van-radio-group": "@vant/weapp/radio-group/index",
     "van-icon": "@vant/weapp/icon/index",
     "van-button": "@vant/weapp/button/index",
     "van-row": "@vant/weapp/row/index",
     "van-col": "@vant/weapp/col/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-divider": "@vant/weapp/divider/index"
   },
   "window": {
     "backgroundColor": "#F6F6F6",

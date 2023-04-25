@@ -1,4 +1,7 @@
+<view style="text-align:center;margin-block: 30rpx;">选择班级</view>
+<van-toast id="van-toast" />
 <van-cell-group title="班级名称：" >
+
   <van-field
     model:value="{{name}}"
     placeholder="请输入班级名称"
@@ -13,10 +16,29 @@
     placeholder="请输入班级课程号"
     label="班级课程号："
     left-icon="info"
-  />
-  <view style="text-align:right; padding-right: 30rpx;">
-    
-  <van-button color="rgba(255,200,87,1)" >搜索</van-button>
-  </view>
+    use-button-slot
+  >
+ 
+  
+  <van-button slot="button" size="small" bind:click="select" 
+  color="rgba(255,200,87,1)" >搜索</van-button>
+  </van-field>
 </van-cell-group>
-<van-toast id="van-toast" />
+<view style="text-align:right; padding-right: 30rpx;">
+  
+  </view>
+
+
+<van-cell-group style="margin-top: 45rpx;display: block;" inset>
+  <van-cell bo bind:click="jumpToClass" class="my_bottom_line" title="班级名称：计算机网络" value="班级课程号：1" use-label-slot label="试卷数量：2" >
+  <view slot="label">
+    <van-tag size="large" type="success">试卷数量:3</van-tag>
+  </view>
+  </van-cell>
+  <van-divider></van-divider>
+  <van-cell bind:click="jumpToClass" class="my_bottom_line" title="班级名称：通讯工程" value="班级课程号：2" use-label-slot >
+  <view slot="label">
+    <van-tag size="large" type="success">试卷数量:2</van-tag>
+  </view>
+  </van-cell>
+</van-cell-group>

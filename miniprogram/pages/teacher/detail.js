@@ -1,12 +1,18 @@
-// pages/teacher/select.js
+// pages/teacher/detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name: '',
-    code: ''
+    name:"计算机网络",
+    code:"123165",
+    count: 10,
+    total: 120,
+    paperName: "计算机网络",
+    time: 60,
+    avg: 90.82,
+    errors: "计算机网络，子网，IP"
   },
 
   /**
@@ -14,12 +20,6 @@ Page({
    */
   onLoad(options) {
 
-  },
-
-  jumpToClass(classId){
-    wx.navigateTo({
-      url: '/pages/teacher/selected',
-    })
   },
 
   /**

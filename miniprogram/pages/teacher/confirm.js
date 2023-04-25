@@ -1,12 +1,13 @@
-// pages/teacher/select.js
+// pages/teacher/confirm.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name: '',
-    code: ''
+    name:'计算机1班',
+    paperName: '计算机网络',
+    time: 60
   },
 
   /**
@@ -14,12 +15,6 @@ Page({
    */
   onLoad(options) {
 
-  },
-
-  jumpToClass(classId){
-    wx.navigateTo({
-      url: '/pages/teacher/selected',
-    })
   },
 
   /**

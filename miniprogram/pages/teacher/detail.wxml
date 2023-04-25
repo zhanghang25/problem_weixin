@@ -1,0 +1,54 @@
+<view style="text-align:center;margin-block: 30rpx;">{{"详情情况页面"}}</view>
+
+<van-cell-group title="班级名称：" >
+  <van-field
+    model:value="{{name}}"
+    placeholder="请输入用户名"
+    label="姓名："
+    disabled
+    left-icon="contact"
+  />
+</van-cell-group>
+
+<van-cell-group title="总分值：" >
+  <van-field
+    model:value="{{total}}"
+    placeholder="请输入总分值"
+    label="总分值："
+    disabled
+    left-icon="contact"
+  />
+</van-cell-group>
+
+<van-cell-group title="试卷名称：" >
+  <van-field
+    model:value="{{paperName}}"
+    placeholder="请输入试卷名称"
+    label="试卷名称："
+    disabled
+
+    left-icon="contact"
+  />
+</van-cell-group>
+
+<van-cell-group title="平均答题时间：" >
+  <van-field
+    model:value="{{avgTime}}"
+    placeholder="请输入平均答题时间："
+    label="平均答题时间："
+    left-icon="contact"
+    disabled
+
+  />
+</van-cell-group>
+
+
+<van-cell-group style="margin-top: 45rpx;display: block;" inset>
+  <van-cell bo bind:click="jumpToPerson" class="my_bottom_line" title="姓名：王大雷" value="分数：100" label="花费时间：50" >
+  
+  </van-cell>
+  <van-divider></van-divider>
+  <van-cell bo bind:click="jumpToPerson" class="my_bottom_line" title="姓名：王海军" value="分数：90" label="花费时间：55" >
+  
+</van-cell>
+</van-cell-group>

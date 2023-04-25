@@ -1,0 +1,92 @@
+<view style="text-align:center;margin-block: 30rpx;">{{"情况分析页面"}}</view>
+
+<van-cell-group title="班级名称：" >
+  <van-field
+    model:value="{{name}}"
+    placeholder="请输入用户名"
+    label="姓名："
+    disabled
+    left-icon="contact"
+  />
+</van-cell-group>
+
+<van-cell-group title="班级课程号：" >
+  <van-field
+    model:value="{{code}}"
+    placeholder="请输入用户名"
+    label="班级课程号："
+    left-icon="contact"
+    disabled
+  />
+</van-cell-group>
+
+<van-cell-group title="题目数量：" >
+  <van-field
+    model:value="{{count}}"
+    placeholder="请输入题目数量"
+    label="题目数量："
+    left-icon="contact"
+    disabled
+  />
+</van-cell-group>
+
+<van-cell-group title="总分值：" >
+  <van-field
+    model:value="{{total}}"
+    placeholder="请输入总分值"
+    label="总分值："
+    disabled
+    left-icon="contact"
+  />
+</van-cell-group>
+
+<van-cell-group title="试卷名称：" >
+  <van-field
+    model:value="{{paperName}}"
+    placeholder="请输入试卷名称"
+    label="试卷名称："
+    disabled
+
+    left-icon="contact"
+  />
+</van-cell-group>
+
+<van-cell-group title="答题时间/分钟：" >
+  <van-field
+    model:value="{{time}}"
+    placeholder="请输入答题时间/分钟："
+    label="答题时间/分钟：："
+    left-icon="contact"
+    disabled
+
+  />
+</van-cell-group>
+
+<van-cell-group title="班级平均值分：" >
+  <van-field
+    model:value="{{avg}}"
+    placeholder="请输入班级平均值分："
+    label="班级平均值分：："
+    left-icon="contact"
+    disabled
+
+  />
+</van-cell-group>
+<van-cell-group title="主要错题关键字：" >
+  <van-field
+    model:value="{{errors}}"
+    placeholder="主要错题关键字："
+    label="主要错题关键字：："
+    left-icon="contact"
+    disabled
+
+  />
+</van-cell-group>
+<van-row style="margin-block:60rpx;display:block;">
+<van-col span="6" offset="3">
+  <van-button bind:click="toMain" color="#FFC857">返  回</van-button>
+</van-col>
+<van-col span="6" offset="6">
+  <van-button bind:click="toDetail" color="#E5446D">详  情</van-button>
+</van-col>
+</van-row>

@@ -1,4 +1,6 @@
+<view style="text-align:center;margin-block: 30rpx;">创建班级</view>
 <van-cell-group title="班级课程号：" >
+
   <van-field
     model:value="{{code}}"
     placeholder="请输入班级课程号"

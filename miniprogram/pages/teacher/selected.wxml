@@ -1,0 +1,50 @@
+<view style="text-align:center;margin-block: 30rpx;">选择计算机网络1班</view>
+<van-toast id="van-toast" />
+<van-cell-group title="班级名称：" >
+
+  <van-field
+    model:value="计算机网络"
+    placeholder="请输入班级名称"
+    label="班级名称："
+    left-icon="info"
+    disabled
+  />
+</van-cell-group>
+<van-cell-group title="班级课程号：" >
+  <van-field
+  disabled
+  style="display: inline;width: 500rpx;"
+    model:value="110212"
+    placeholder="请输入班级课程号"
+    label="班级课程号："
+    left-icon="info"
+  />
+ 
+    
+</van-cell-group>
+<view style="text-align:right; padding-right: 30rpx;">
+  <van-button style="display: block;margin-top: 20rpx;" bind:click="select" color="rgba(255,200,87,1)" >搜索</van-button>
+  </view>
+
+
+<van-cell-group style="margin-top: 45rpx;display: block;" inset>
+  <van-cell bind:click="toPaperDesign" data-state="2" class="my_bottom_line" title="班级名称：计算机网络" value="班级课程号：1" use-label-slot label="试卷数量：2" >
+  <view slot="label">
+    <view class="flex">
+      <van-tag class="toRightTag" size="large" type="success">题目数量: 3</van-tag>
+      <van-tag size="large" class="toRightTag" color="{{1==1?'#E5446D':'#FFC857'}}" >发布状态:已发布</van-tag>
+    </view>
+   
+  </view>
+  </van-cell>
+  <van-divider></van-divider>
+  <van-cell bind:click="toPaperDesign" data-state="1" class="my_bottom_line" title="班级名称：通讯工程" value="班级课程号：2" use-label-slot >
+  <view slot="label">
+  <view class="flex">
+    <van-tag size="large" class="toRightTag" type="success">题目数量: 211</van-tag>
+    <van-tag size="large" class="toRightTag" color="{{1==2?'#E5446D':'#FFC857'}}">发布状态:未发布</van-tag>
+  </view>
+  </view>
+
+  </van-cell>
+</van-cell-group>

@@ -1,24 +1,31 @@
-// pages/teacher/select.js
+// pages/teacher/paperDesign.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name: '',
-    code: ''
+    isUpdate: false,
+    type: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad:function(options) {
+      let that = this ;
+      const eventChannel = this.getOpenerEventChannel()
+      eventChannel.on('sendData',function(data){
+        console.log(data)
+        that.setData({
+          isUpdate:data.data
+        })
+      })
   },
 
-  jumpToClass(classId){
+  toConfirm(){
     wx.navigateTo({
-      url: '/pages/teacher/selected',
+      url: '/pages/teacher/confirm',
     })
   },
 

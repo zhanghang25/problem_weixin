@@ -21,7 +21,12 @@ Page({
   },
 
   designPaper(){
-
+    wx.navigateTo({
+      url: '/pages/teacher/paperDesign',
+      success: function(res){
+        res.eventChannel.emit('sendData',{data:false})
+      }
+    })
   },
 
 
