@@ -1,0 +1,22 @@
+<van-cell-group title="班级名称：" >
+  <van-field
+    model:value="{{name}}"
+    placeholder="请输入班级名称"
+    label="班级名称："
+    left-icon="info"
+  />
+</van-cell-group>
+<van-cell-group title="班级课程号：" >
+  <van-field
+  style="display: inline;width: 500rpx;"
+    model:value="{{code}}"
+    placeholder="请输入班级课程号"
+    label="班级课程号："
+    left-icon="info"
+  />
+  <view style="text-align:right; padding-right: 30rpx;">
+    
+  <van-button color="rgba(255,200,87,1)" >搜索</van-button>
+  </view>
+</van-cell-group>
+<van-toast id="van-toast" />

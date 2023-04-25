@@ -1,0 +1,6 @@
+/* pages/teacher/index.wxss */
+
+.toTop{
+  margin-top: 200rpx;
+  display: block;
+}

@@ -1,0 +1,22 @@
+<!--pages/teacher/index.wxml-->
+<view>
+  
+<van-row class="toTop">
+  <van-col offset="8" span="8" >
+    <van-button bind:click="createClass" color="#E5446D">创建班级</van-button>
+  </van-col>
+</van-row>
+  
+<van-row class="toTop">
+  <van-col offset="8" span="8" >
+  <van-button bind:click="selectClass" color="#E5446D">选择班级</van-button>
+  </van-col>
+</van-row>
+  
+<van-row class="toTop">
+  <van-col offset="8" span="8" >
+  <van-button bind:click="designPaper" color="#E5446D">设计试卷</van-button>
+  </van-col>
+</van-row>
+
+</view>

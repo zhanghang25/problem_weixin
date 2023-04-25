@@ -1,0 +1,7 @@
+
+<van-sticky offset-top="{{ 20 }}">
+<view style="width: 100%;">
+  <van-button color="linear-gradient(to right, #FFC857,#E9724C)" size="large"  type="primary">吸顶距离</van-button>
+
+</view>
+</van-sticky>

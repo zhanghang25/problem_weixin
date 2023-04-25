@@ -1,0 +1,6 @@
+/* pages/index.wxss */
+
+.center{
+  text-align: center;
+}
+
