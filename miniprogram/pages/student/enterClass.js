@@ -1,43 +1,12 @@
-// pages/index/index.js
-import Toast from '@vant/weapp/toast/toast';
+// pages/student/enterClass.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name:"",
-    role: 2,
-    code: ""
-  },
-
-  onChange(event) {
-    this.setData({
-      role: event.detail,
-    });
-  },
-
-  onClick(event) {
-    const { name } = event.currentTarget.dataset;
-    this.setData({
-      role: name,
-    });
-  },
-
-  toMain(){
-    console.log(11)
-    wx.redirectTo({
-      url: '/pages/student/joinClass',
-    })
-  },
-  reset( ){
-    this.setData({
-      role: '',
-      name: '',
-      code: ''
-      
-    })
-    Toast.success("重置成功！")
+    code:'',
+    name: ''
   },
 
   /**

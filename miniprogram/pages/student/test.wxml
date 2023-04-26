@@ -1,0 +1,13 @@
+<van-row class="toTop">
+  <van-col offset="8" span="8" >
+    <van-button bind:click="createClass" color="#E5446D">自我练习</van-button>
+  </van-col>
+</van-row>
+  
+<van-row class="toTop">
+  <van-col offset="8" span="8" >
+  <van-button bind:click="selectClass" color="#E5446D">题目推荐</van-button>
+  </van-col>
+</van-row>
+
+<footer ></footer>

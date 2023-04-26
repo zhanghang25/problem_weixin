@@ -1,0 +1,37 @@
+<view style="text-align:center;margin-block: 30rpx;">选择班级</view>
+<van-toast id="van-toast" />
+<van-cell-group title="班级名称：" >
+
+  <van-field
+    model:value="{{name}}"
+    placeholder="请输入班级名称"
+    label="班级名称："
+    left-icon="info"
+  />
+</van-cell-group>
+<van-cell-group title="班级课程号：" >
+  <van-field
+  style="display: inline;width: 500rpx;"
+    model:value="{{code}}"
+    placeholder="请输入班级课程号"
+    label="班级课程号："
+    left-icon="info"
+    use-button-slot
+  >
+ 
+  
+  <van-button slot="button" size="small" bind:click="select" 
+  color="rgba(255,200,87,1)" >搜索</van-button>
+  </van-field>
+</van-cell-group>
+
+<van-cell-group title="搜索的班级">
+<van-cell title="班级1">
+</van-cell>
+<van-divider></van-divider>
+<van-cell title="班级2">
+</van-cell>
+<van-divider></van-divider>
+<van-cell title="班级3">
+</van-cell>
+</van-cell-group>

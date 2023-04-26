@@ -9,7 +9,10 @@
     "pages/teacher/updatePaper",
     "pages/teacher/confirm",
     "pages/teacher/analysis",
-    "pages/teacher/detail"
+    "pages/teacher/detail",
+    "pages/student/joinClass",
+    "pages/student/enterClass",
+    "pages/student/test"
   ],
   "usingComponents": {
     "van-field": "@vant/weapp/field/index",
@@ -23,7 +26,9 @@
     "van-col": "@vant/weapp/col/index",
     "van-toast": "@vant/weapp/toast/index",
     "van-tag": "@vant/weapp/tag/index",
-    "van-divider": "@vant/weapp/divider/index"
+    "van-divider": "@vant/weapp/divider/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
   },
   "window": {
     "backgroundColor": "#F6F6F6",

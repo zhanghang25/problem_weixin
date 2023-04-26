@@ -1,5 +1,6 @@
-<view class="footer">
-    <view class="add" bindtap="onClick">
-      <image class="add-image" src="../../images/footer/add.png"/>
-    </view>
-</view>
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item name="classPaper" icon="home-o">标签</van-tabbar-item>
+  <van-tabbar-item name="test" icon="search">标签</van-tabbar-item>
+  <van-tabbar-item name="friends" icon="friends-o">标签</van-tabbar-item>
+  <van-tabbar-item name="setting" icon="setting-o">标签</van-tabbar-item>
+</van-tabbar>
