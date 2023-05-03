@@ -21,3 +21,5 @@
   <van-col custom-class="center" span="12"><van-button bind:click="confirm" size="large" color="#FFC857">确认</van-button></van-col>
   <van-col custom-class="center" span="12"><van-button size="large"  bind:click="reset" color="#E9724C">重置</van-button></van-col>
 </van-row>
+
+<van-loading wx:if="{{show_loading}}" size="24px">加载中...</van-loading>

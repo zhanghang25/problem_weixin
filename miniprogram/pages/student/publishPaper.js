@@ -1,30 +1,26 @@
-// pages/student/joinClass.js
-const app = getApp()
+// pages/student/publishPaper.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    myJoinClass: []
+
   },
-  toPublishPaper(){
+  toClassReport(){
     wx.navigateTo({
-      url: '/pages/student/publishPaper',
+      url: '/pages/student/classReport',
     })
   },
-  toEnterClass(){
+
+  toInfo(){
     wx.navigateTo({
-      url: '/pages/student/enterClass',
+      url: '/pages/student/paperInfo',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
-
-  getMyClass(){
-
-  },
   onLoad(options) {
 
   },
@@ -39,16 +35,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  async onShow() {
-   let res =  await app.call({
-      path: "/studentclass/myClass",
-      data:{
-        studentId: app.globalData.userInfo.id
-      }
-    })
-    this.setData({
-      myJoinClass: res
-    })
+  onShow() {
+
   },
 
   /**

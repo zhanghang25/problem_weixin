@@ -1,0 +1,10 @@
+<view style="text-align:center;margin-block: 30rpx;">我的某某班的课程报告</view>
+<van-cell-group style="margin-top: 45rpx;display: block;" inset>
+  <van-cell custom-class="black" title="错题关键字：XX,XX"></van-cell>
+  <van-cell custom-class="white"  title="{{total_info}}"></van-cell>
+  <van-cell bind:click="toPaperInfo" title="试卷1" value="得分：100"></van-cell>
+  <van-divider></van-divider>
+  <van-cell title="试卷2"></van-cell>
+  <van-divider></van-divider>
+  <van-cell title="试卷3"></van-cell>
+</van-cell-group>

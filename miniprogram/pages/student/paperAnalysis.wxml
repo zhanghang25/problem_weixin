@@ -1,0 +1,24 @@
+<!--pages/student/paperAnalysis.wxml-->
+<van-cell-group>
+  <van-cell title="试卷1作答信息">
+
+</van-cell>
+<van-divider>
+</van-divider>
+<van-cell  >
+  <view slot="title">
+    <view>正确题目：</view>
+    
+    <view> 第一题：</view>
+  </view>
+</van-cell>
+<van-divider>
+</van-divider>
+<van-cell  >
+  <view slot="title">
+    <view>错误题目：</view>
+    
+    <view> 第二题：</view>
+  </view>
+</van-cell>
+</van-cell-group>

@@ -1,24 +1,127 @@
 // pages/teacher/select.js
+const app = getApp()
 Page({
-
+  select(){
+    this.getList()
+  },
   /**
    * 页面的初始数据
    */
   data: {
     name: '',
-    code: ''
+    code: '',
+    classList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.getList()
+  },
+
+  convertToTree(flatData){
+    let map = new Map();
+    let pid;
+    for(let i = 0; i < flatData.length;i++){
+      pid = flatData[i].id;
+      if(map.has(pid)){
+        let tmp = {
+          classId: flatData[i].classId,
+          className: flatData[i].className,
+          id: flatData[i].id,
+          testId: flatData[i].testId,
+          testName: flatData[i].testName,
+          paperCount: flatData[i].paperCount,
+          statusId: flatData[i].statusId,time:flatData[i].time
+        };
+        if(tmp.testId != null){
+          map.get(pid).papersCount +=1
+        } 
+        map.get(pid).childrens.push(tmp);
+      }else {
+        let tmp = {
+          classId: flatData[i].classId,
+          className: flatData[i].className,
+          id: flatData[i].id,
+          testId: flatData[i].testId,
+          testName: flatData[i].testName,
+          
+        };
+        let in_tmp = {
+          classId: flatData[i].classId,
+          className: flatData[i].className,
+          id: flatData[i].id,
+          testId: flatData[i].testId,
+          testName: flatData[i].testName,
+          paperCount: flatData[i].paperCount,
+          statusId: flatData[i].statusId,time:flatData[i].time
+        };
+        map.set(pid,tmp)
+        if(!map.get(pid).childrens){
+
+          map.get(pid).childrens = [];
+        }
+        if(!map.get(pid).papersCount){
+
+          map.get(pid).papersCount = 0
+        }
+        if(tmp.testId != null){
+          map.get(pid).papersCount +=1
+          map.get(pid).childrens.push(in_tmp);
+        }  
+      }
+    }
+
+    console.log(map)
+    let result = this.map2Ary(map)
+    return result;
+
 
   },
 
+  async getList(){
+    const res = await app.call({
+      path:"/classes/teacherClass",
+      data:{
+        classId: this.data.code,
+        className: this.data.name,
+        teacherId: app.globalData.userInfo.id
+      },
+    })
+
+
+    if(res){
+      let arr = this.convertToTree(res)
+      this.setData({
+        classList: arr
+      })
+
+    }
+  },
+
+  map2Ary(map2){
+    let list3 = []
+    console.log(map2)
+    map2.forEach((val,key)=>{
+      console.log("111:",val)
+      console.log("222:",key)
+      list3.push(map2.get(key))
+    })
+    console.log(list3)
+    // for(let [key,val] of map){
+    //   list.push(val)
+    // }
+    return list3;
+  },
+
   jumpToClass(classId){
+    console.log(classId)
     wx.navigateTo({
       url: '/pages/teacher/selected',
+      success: function(res){
+        res.eventChannel.emit('sendClass',classId.currentTarget.dataset)
+      }
     })
   },
 

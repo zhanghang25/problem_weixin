@@ -1,0 +1,5 @@
+/* pages/student/paperInfo.wxss */
+.toTop2{
+  margin-top: 70rpx;
+  display: block;
+}

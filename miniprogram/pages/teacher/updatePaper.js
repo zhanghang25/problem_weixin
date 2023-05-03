@@ -1,4 +1,5 @@
 // pages/teacher/updatePaper.js
+const app = getApp()
 Page({
 
   /**
@@ -8,17 +9,59 @@ Page({
     name:"计算机网络",
     code:"123165",
     count: 10,
-    total: 120,
+    total: 100,
     paperName: "计算机网络",
     time: 60,
+    testId: ''
 
   },
+  async getConfirm(){
+    console.log(111)
+    await app.call({
+      path:"/papers/updateBatch",
+      data: {
+        time: this.data.time,
+        testId: this.data.testId,
+        testName: this.data.paperName
+      }
+    })
 
+    wx.redirectTo({
+      url: '/pages/teacher/index',
+    })
+  },
+
+  async getPublish(){
+    await app.call({
+      path:"/papers/updateBatch",
+      data: {
+        testId: this.data.testId,
+        statusId: 2
+      }
+    })
+
+    wx.redirectTo({
+      url: '/pages/teacher/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    let that = this ;
+      const eventChannel = this.getOpenerEventChannel()
+      eventChannel.on('sendTest',function(data){
+        console.log(data)
 
+        that.setData({
+          name: data.test.className,
+          code: data.test.classId,
+          count: data.test.paperCount,
+          time: data.test.time,
+          paperName: data.test.testName,
+          testId: data.test.testId
+        })
+      })
   },
 
   /**

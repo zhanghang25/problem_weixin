@@ -1,6 +1,8 @@
 <view style="text-align:center;margin-block: 30rpx;">确认试卷页面</view>
 <van-cell-group title="班级名称：" >
   <van-field
+    bind:click-input="getChange"
+    disabled="{{true}}"
     model:value="{{name}}"
     placeholder="请输入用户名"
     label="姓名："
@@ -29,6 +31,8 @@
 
 <van-row style="margin: 50rpx;display:block;">
 <van-col span="8" offset="8">
-  <van-button color="#FFC857">确  定</van-button>
+  <van-button bind:click="submit" color="#FFC857">确  定</van-button>
 </van-col>
 </van-row>
+
+<van-picker show-toolbar="{{true}}" wx:if="{{showPicker}}" title="班级选择" columns="{{ columns }}" bind:change="onChange" />

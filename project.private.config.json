@@ -42,8 +42,58 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "classpaper",
+          "pathName": "pages/student/publishPaper",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "ccc",
+          "pathName": "pages/teacher/select",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "design",
+          "pathName": "pages/teacher/paperDesign",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "studentMain",
+          "pathName": "pages/student/joinClass",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "studentpaper",
+          "pathName": "pages/student/publishPaper",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "analysis",
+          "pathName": "pages/student/paperAnalysis",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "info",
+          "pathName": "pages/student/paperInfo",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
-  }
+  },
+  "libVersion": "2.31.0"
 }

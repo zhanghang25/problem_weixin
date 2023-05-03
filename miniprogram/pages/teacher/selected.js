@@ -5,24 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    my_class:{}
   },
 
   toPaperDesign(event){
     console.log(event)
+    let that = this 
     if(event.target.dataset.state == 2){
       
       wx.navigateTo({
         url: '/pages/teacher/analysis',
         success: function(res){
           res.eventChannel.emit('sendData',{data:true})
+          
         }
       })
     }else{
       wx.navigateTo({
         url: '/pages/teacher/updatePaper',
         success: function(res){
-          res.eventChannel.emit('sendData',{data:true})
+          res.eventChannel.emit('sendTest',{"test":event.target.dataset.item,"class":that.data.my_class})
         }
       })
     }
@@ -31,8 +33,15 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad:function(options) {
+    let that = this ;
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('sendClass',function(data){
+      console.log(data)
+      that.setData({
+        my_class:data.class
+      })
+    })
   },
 
   /**

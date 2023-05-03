@@ -3,87 +3,87 @@
 <van-radio-group model:value="{{ type }}" bind:change="onChange">
   <van-cell-group title="题目类别：">
     <van-cell title="选择题" clickable data-name="1" bind:click="onClick">
-      <van-radio slot="right-icon" name="1" />
+      <van-radio disabled="{{isUpdate}}" slot="right-icon" name="1" />
     </van-cell>
     <van-cell title="填空题" clickable data-name="2" bind:click="onClick">
-      <van-radio slot="right-icon" name="2" />
+      <van-radio disabled="{{isUpdate}}" slot="right-icon" name="2" />
     </van-cell>
   </van-cell-group>
 </van-radio-group>
 
-<van-radio-group model:value="{{ way }}" bind:change="onChange">
+<van-radio-group model:value="{{ source }}" bind:change="onChange">
   <van-cell-group title="出题方式：">
     <van-cell title="自主出题" clickable data-name="1" bind:click="onClick">
-      <van-radio slot="right-icon" name="1" />
+      <van-radio disabled="{{isUpdate}}" slot="right-icon" name="1" />
     </van-cell>
     <van-cell title="题库中推荐" clickable data-name="2" bind:click="onClick">
-      <van-radio slot="right-icon" name="2" />
+      <van-radio disabled="{{isUpdate}}" slot="right-icon" name="2" />
     </van-cell>
   </van-cell-group>
 </van-radio-group>
 
 <van-cell-group title="题目关键字（关键字之间用逗号隔开）：" >
   <van-field
-    model:value="计算机网络"
+    model:value="{{keywords}}"
     placeholder="请输入题目关键字"
     label="题目关键字："
     left-icon="contact"
     autosize
     use-button-slot
   >
-  <van-button wx:if="{{way == 2}}" slot="button" color="#E9724C" size="small">搜索</van-button>
+  <van-button wx:if="{{source == 2}}" slot="button" color="#E9724C" size="small">搜索</van-button>
   </van-field>
   </van-cell-group>
 <view style="margin: 20rpx;">
   
-<van-tag style="margin-right: 30rpx;"  size="large" color="#FFC857">第3题题目</van-tag>
-<van-tag wx:if="{{way == 2}}"  size="large" type="success">题库第2题</van-tag>
+<van-tag style="margin-right: 30rpx;"  size="large" color="#FFC857">第{{currentSelf}}题题目</van-tag>
+<van-tag wx:if="{{source == 2}}"  size="large" type="success">题库第{{currentGarbage}}题</van-tag>
 </view>
 <van-cell-group >
   <van-field
-    model:value="{{name}}"
+    model:value="{{questionDescribe}}"
     placeholder="请输入题目题干"
     label="题目题干："
     left-icon="contact"
     autosize
+    type="textarea"
   />
 </van-cell-group>
 
 
 <van-field
-    model:value="10"
+    model:value="{{score}}"
     placeholder="请输入题目分值"
     label="题目分值："
     type="digit"
     left-icon="contact"
-    autosize
   />
   
 <view wx:if="{{type==1}}">
 <van-cell-group title="选择题选项">
   <van-field
-    model:value="A选项"
+    model:value="{{optionA}}"
     placeholder="请输入选项A"
     label="选项A："
     left-icon="contact"
     autosize
   />
   <van-field
-    model:value="B选项"
+    model:value="{{optionB}}"
     placeholder="请输入选项B"
     label="选项B："
     left-icon="contact"
     autosize
   />
   <van-field
-    model:value="C选项"
+    model:value="{{optionC}}"
     placeholder="请输入选项C"
     label="选项C："
     left-icon="contact"
     autosize
   />
   <van-field
-    model:value="D选项"
+    model:value="{{optionD}}"
     placeholder="请输入选项D"
     label="选项D："
     left-icon="contact"
@@ -106,8 +106,8 @@
   </view>
 <van-cell-group title="正确答案：" >
 <van-field
-disabled="{{type == 1}}"
-    model:value="10"
+disabled="{{type == 1 }}"
+    model:value="{{answerContent}}"
     placeholder="请输入正确答案"
     label="正确答案："
     type="digit"
@@ -118,10 +118,10 @@ disabled="{{type == 1}}"
 
 <van-row style="margin: 50rpx;display:block;">
 <van-col span="6" offset="3">
-  <van-button>上一题</van-button>
+  <van-button bind:click="prev">上一题</van-button>
 </van-col>
 <van-col span="6" offset="6">
-  <van-button>下一题</van-button>
+  <van-button bind:click="next">下一题</van-button>
 </van-col>
 </van-row>
 
@@ -134,7 +134,7 @@ disabled="{{type == 1}}"
   <van-button color="#E5446D">返  回</van-button>
 </van-col>
 </van-row>
-
+<van-toast id="van-toast" />
 
   
 

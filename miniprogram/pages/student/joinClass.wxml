@@ -1,13 +1,10 @@
-<van-button bind:click="toEnterClass" type="info">加入班级</van-button>
-
+<van-button style="display: block;margin: 30rpx;" bind:click="toEnterClass" type="info">加入班级</van-button>
 <van-cell-group title="已经加入的班级">
-<van-cell title="班级1">
+<view wx:for="{{myJoinClass}}" wx:for-item="ccc" >
+<van-cell bind:click="toPublishPaper" title="{{ccc.className}}">
 </van-cell>
 <van-divider></van-divider>
-<van-cell title="班级2">
-</van-cell>
-<van-divider></van-divider>
-<van-cell title="班级3">
-</van-cell>
+</view>
+
 </van-cell-group>
 <footer></footer>

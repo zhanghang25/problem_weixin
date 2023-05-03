@@ -1,30 +1,22 @@
-// pages/student/joinClass.js
-const app = getApp()
+// pages/student/paperInfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    myJoinClass: []
+    endTime:"60:00",
+    pageInfo: {},
+    currentInfo: {
+      questionDescribe: "第一台计算机是1946年美国研制的,该机英文缩写名为(  ).	"
+    },
+    currentIndex: 1,
+    currentAnswer: '请输入填空内容，多个选项按英文逗号分割',
   },
-  toPublishPaper(){
-    wx.navigateTo({
-      url: '/pages/student/publishPaper',
-    })
-  },
-  toEnterClass(){
-    wx.navigateTo({
-      url: '/pages/student/enterClass',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-
-  getMyClass(){
-
-  },
   onLoad(options) {
 
   },
@@ -39,16 +31,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  async onShow() {
-   let res =  await app.call({
-      path: "/studentclass/myClass",
-      data:{
-        studentId: app.globalData.userInfo.id
-      }
-    })
-    this.setData({
-      myJoinClass: res
-    })
+  onShow() {
+
   },
 
   /**

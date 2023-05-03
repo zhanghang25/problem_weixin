@@ -1,4 +1,5 @@
 // pages/teacher/create.js
+const app = getApp()
 import Toast from '@vant/weapp/toast/toast';
 Page({
 
@@ -8,9 +9,29 @@ Page({
   data: {
     code: '',
     name: '',
+    show_loading: false,
   },
 
-  confirm(){
+  async confirm(){
+    this.setData({
+      show_loading: true
+    })
+    let res =  await app.call({
+      path: "/classes/create",
+      data: {
+        classId: this.data.code,
+        className: this.data.name,
+        teacherId: app.globalData.userInfo.id
+      }
+    })
+    this.setData({
+      show_loading: false
+    })
+    console.log(res)
+    if(app.successCheck(res)){
+      wx.navigateBack()
+    }
+
     console.log(this.data.code,this.data.name)
   },
   reset(){

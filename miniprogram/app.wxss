@@ -27,3 +27,16 @@ page{
   margin-top: 200rpx;
   display: block;
 }
+
+.black {
+  background-color: #FFC857 !important;
+  color: #fff !important;
+  margin-top: 30rpx;
+}
+
+
+.white {
+  background-color: #E9724C !important;
+  color: #fff !important;
+  margin-top: 30rpx;
+}

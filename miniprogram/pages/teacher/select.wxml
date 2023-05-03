@@ -30,15 +30,13 @@
 
 
 <van-cell-group style="margin-top: 45rpx;display: block;" inset>
-  <van-cell bo bind:click="jumpToClass" class="my_bottom_line" title="班级名称：计算机网络" value="班级课程号：1" use-label-slot label="试卷数量：2" >
+  <view wx:key="{{classItem.id}}" wx:for="{{classList}}" wx:for-item="classItem">
+  <van-cell  bind:click="jumpToClass" data-class="{{classItem}}" class="my_bottom_line" title="{{'班级名称：'+classItem.className}}" value="{{'班级课程号：'+classItem.classId}}" use-label-slot label="{{'试卷数量：'+classItem.papersCount}}" >
   <view slot="label">
-    <van-tag size="large" type="success">试卷数量:3</van-tag>
+    <van-tag size="large" type="success">试卷数量:{{classItem.papersCount}}</van-tag>
   </view>
   </van-cell>
   <van-divider></van-divider>
-  <van-cell bind:click="jumpToClass" class="my_bottom_line" title="班级名称：通讯工程" value="班级课程号：2" use-label-slot >
-  <view slot="label">
-    <van-tag size="large" type="success">试卷数量:2</van-tag>
   </view>
-  </van-cell>
+  
 </van-cell-group>

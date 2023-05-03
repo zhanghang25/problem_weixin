@@ -1,30 +1,21 @@
-// pages/student/joinClass.js
-const app = getApp()
+// pages/student/classReport.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    myJoinClass: []
+    total_info: "试卷总得分：85分(所有考试平均分百分制)"
   },
-  toPublishPaper(){
+  toPaperInfo(){
     wx.navigateTo({
-      url: '/pages/student/publishPaper',
+      url: '/pages/student/paperAnalysis',
     })
   },
-  toEnterClass(){
-    wx.navigateTo({
-      url: '/pages/student/enterClass',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-
-  getMyClass(){
-
-  },
   onLoad(options) {
 
   },
@@ -39,16 +30,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  async onShow() {
-   let res =  await app.call({
-      path: "/studentclass/myClass",
-      data:{
-        studentId: app.globalData.userInfo.id
-      }
-    })
-    this.setData({
-      myJoinClass: res
-    })
+  onShow() {
+
   },
 
   /**

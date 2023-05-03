@@ -57,14 +57,14 @@
     left-icon="contact"
   />
 </van-cell-group>
-<van-row style="margin: 50rpx;display:block;">
+<van-row  style="margin: 50rpx;display:block;">
 <van-col span="8" offset="8">
-  <van-button color="#FFC857">确  定</van-button>
+  <van-button bind:click="getConfirm" color="#FFC857">确  定</van-button>
 </van-col>
 </van-row>
 <van-row style="margin: 50rpx;display:block;">
 <van-col span="8" offset="8">
-  <van-button color="#E5446D">发  布</van-button>
+  <van-button bind:click="getPublish" color="#E5446D">发  布</van-button>
 </van-col>
 </van-row>
 <van-row style="margin: 50rpx;display:block;">

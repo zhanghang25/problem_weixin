@@ -1,4 +1,5 @@
 // pages/index/index.js
+const app = getApp()
 import Toast from '@vant/weapp/toast/toast';
 Page({
 
@@ -24,19 +25,71 @@ Page({
     });
   },
 
-  toMain(){
+  async toMain(){
     console.log(11)
-    wx.redirectTo({
-      url: '/pages/student/joinClass',
-    })
+    // wx.redirectTo({
+    //   url: '/pages/student/joinClass',
+    // })
+    let res = {} 
+    if(this.data.role == 1){
+      
+      res = await app.call({
+        path: '/students/create',
+        method: 'POST',
+        data:{
+          studentName: this.data.name,
+          studentTel: "15933332222",
+          studentId: this.data.code
+        }
+      })
+      console.log(res)
+      Toast.success(res)
+      if(app.successCheck(res) || res == "已经注册过了"){
+        app.init()
+      wx.redirectTo({
+        url: '/pages/student/joinClass',
+      })
+    }
+    }else{
+
+      
+       res = await app.call({
+        path: '/teachers/create',
+        method: 'POST',
+        data:{
+          teacherName: this.data.name,
+          teacherTel: "15933332222",
+          teacherId: this.data.code
+        }
+      })
+      Toast.success(res)
+      if( app.successCheck(res) || res == "已经注册过了"){
+        app.init()
+      wx.redirectTo({
+        url: '/pages/teacher/index',
+      })
+    }
+    }
+    console.log(res)
+
+
+    
+
+
   },
-  reset( ){
+   async reset(){
     this.setData({
       role: '',
       name: '',
       code: ''
       
     })
+    const res = await app.call({
+      path: '/classes/list',
+      method: 'GET',
+      data:{}
+    })
+    console.log(res)
     Toast.success("重置成功！")
   },
 
@@ -57,8 +110,13 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-
+  async onShow() {
+    const res = await app.call({
+      path: '/classes/list',
+      method: 'GET',
+      data:{}
+    })
+    console.log(res)
   },
 
   /**

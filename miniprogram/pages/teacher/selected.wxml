@@ -3,7 +3,7 @@
 <van-cell-group title="班级名称：" >
 
   <van-field
-    model:value="计算机网络"
+    model:value="{{my_class.className}}"
     placeholder="请输入班级名称"
     label="班级名称："
     left-icon="info"
@@ -14,7 +14,7 @@
   <van-field
   disabled
   style="display: inline;width: 500rpx;"
-    model:value="110212"
+    model:value="{{my_class.classId}}"
     placeholder="请输入班级课程号"
     label="班级课程号："
     left-icon="info"
@@ -26,25 +26,21 @@
   <van-button style="display: block;margin-top: 20rpx;" bind:click="select" color="rgba(255,200,87,1)" >搜索</van-button>
   </view>
 
-
-<van-cell-group style="margin-top: 45rpx;display: block;" inset>
-  <van-cell bind:click="toPaperDesign" data-state="2" class="my_bottom_line" title="班级名称：计算机网络" value="班级课程号：1" use-label-slot label="试卷数量：2" >
+<view style="margin:30rpx" wx:if="{{my_class.childrens.length == 0}}">
+    无试卷
+</view>
+<van-cell-group wx:else style="margin-top: 45rpx;display: block;" inset>
+  <view wx:for="{{my_class.childrens}}" wx:key="{{paperItem.testId}}" wx:for-item="paperItem">
+  <van-cell bind:click="toPaperDesign" data-item="{{paperItem}}" data-state="{{paperItem.statusId}}" class="my_bottom_line" title="{{'试卷名称:'+paperItem.testName}}" value="{{'试卷编号:'+paperItem.testId}}" use-label-slot  >
   <view slot="label">
     <view class="flex">
-      <van-tag class="toRightTag" size="large" type="success">题目数量: 3</van-tag>
-      <van-tag size="large" class="toRightTag" color="{{1==1?'#E5446D':'#FFC857'}}" >发布状态:已发布</van-tag>
+      <van-tag class="toRightTag" size="large" type="success">题目数量: {{paperItem.paperCount}}</van-tag>
+      <van-tag size="large" class="toRightTag" color="{{paperItem.statusId==1?'#E5446D':'#FFC857'}}" >发布状态:{{paperItem.statusId==1?"未发布":"已发布"}}</van-tag>
     </view>
    
   </view>
   </van-cell>
   <van-divider></van-divider>
-  <van-cell bind:click="toPaperDesign" data-state="1" class="my_bottom_line" title="班级名称：通讯工程" value="班级课程号：2" use-label-slot >
-  <view slot="label">
-  <view class="flex">
-    <van-tag size="large" class="toRightTag" type="success">题目数量: 211</van-tag>
-    <van-tag size="large" class="toRightTag" color="{{1==2?'#E5446D':'#FFC857'}}">发布状态:未发布</van-tag>
   </view>
-  </view>
-
-  </van-cell>
+  
 </van-cell-group>

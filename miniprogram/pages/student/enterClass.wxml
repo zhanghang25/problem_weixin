@@ -26,12 +26,10 @@
 </van-cell-group>
 
 <van-cell-group title="搜索的班级">
-<van-cell title="班级1">
+<view wx:for="{{classList}}" wx:for-item="classItem">
+<van-cell bind:click="setClass" data-classid="{{classItem.id}}" title="{{classItem.className}}">
 </van-cell>
 <van-divider></van-divider>
-<van-cell title="班级2">
-</van-cell>
-<van-divider></van-divider>
-<van-cell title="班级3">
-</van-cell>
+</view>
+
 </van-cell-group>

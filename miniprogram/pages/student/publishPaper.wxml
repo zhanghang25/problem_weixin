@@ -1,0 +1,10 @@
+<van-cell bind:click="toClassReport" style="margin-top: 25rpx;display: block;" title="查看我的课程报告"></van-cell>
+
+<van-cell-group style="margin-top: 45rpx;display: block;" inset>
+  <van-cell custom-class="black" title="某某1班已发布试卷"></van-cell>
+  <van-cell bind:click="toInfo" title="试卷1"></van-cell>
+  <van-divider></van-divider>
+  <van-cell bind:click="toInfo" title="试卷2"></van-cell>
+  <van-divider></van-divider>
+  <van-cell bind:click="toInfo" title="试卷3"></van-cell>
+</van-cell-group>
