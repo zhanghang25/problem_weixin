@@ -46,9 +46,9 @@ Page({
       Toast.success(res)
       if(app.successCheck(res) || res == "已经注册过了"){
         app.init()
-      wx.redirectTo({
-        url: '/pages/student/joinClass',
-      })
+      // wx.redirectTo({
+      //   url: '/pages/student/joinClass',
+      // })
     }
     }else{
 
@@ -65,9 +65,9 @@ Page({
       Toast.success(res)
       if( app.successCheck(res) || res == "已经注册过了"){
         app.init()
-      wx.redirectTo({
-        url: '/pages/teacher/index',
-      })
+      // wx.redirectTo({
+      //   url: '/pages/teacher/index',
+      // })
     }
     }
     console.log(res)

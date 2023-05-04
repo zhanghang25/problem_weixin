@@ -92,7 +92,7 @@
 </van-cell-group>
 </view>
 <view wx:if="{{type==2}}">
-  <van-radio-group value="{{ order }}" bind:change="onChange">
+  <van-radio-group model:value="{{ order }}" bind:change="onChange">
   <van-cell-group title="答案是否可以乱序：">
     <van-cell title="是" clickable data-name="1" bind:click="onClick">
       <van-radio slot="right-icon" name="1" />

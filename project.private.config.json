@@ -91,6 +91,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "123",
+          "pathName": "pages/teacher/confirm",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

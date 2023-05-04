@@ -28,6 +28,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad:function(options) {
+      this.empty()
       let that = this ;
       const eventChannel = this.getOpenerEventChannel()
       eventChannel.on('sendData',function(data){

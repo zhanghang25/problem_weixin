@@ -52,7 +52,9 @@ Page({
   let res2 = res.map(cc=>cc.className)
     this.setData({
       classList: res,
-      columns:res2
+      columns:res2,
+      name: res[0]['className'],
+      selectClass: res[0]['id']
     })
   console.log(res)
 
@@ -67,8 +69,11 @@ Page({
     }
     return Num;
   },
-  submit(){
-    app.call({
+ async submit(){
+    this.setData({
+      showLoad: true
+    })
+    await app.call({
       path:"/questions/sendQuestions",
       data:{
         allList: JSON.stringify(this.data.list) ,
@@ -78,6 +83,14 @@ Page({
         teacherId: app.globalData.userInfo.id,
         classId: this.data.selectClass
       }
+    })
+
+    this.setData({
+      showLoad: false
+    })
+
+    wx.redirectTo({
+      url: '/pages/teacher/index',
     })
   },
   /**

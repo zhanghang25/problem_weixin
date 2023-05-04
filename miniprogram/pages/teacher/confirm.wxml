@@ -34,5 +34,9 @@
   <van-button bind:click="submit" color="#FFC857">确  定</van-button>
 </van-col>
 </van-row>
-
+<van-overlay show="{{ showLoad }}" bind:click="onClickHide">
+  <view class="wrapper">
+    <van-loading type="spinner" color="#1989fa" />
+  </view>
+</van-overlay>
 <van-picker show-toolbar="{{true}}" wx:if="{{showPicker}}" title="班级选择" columns="{{ columns }}" bind:change="onChange" />
