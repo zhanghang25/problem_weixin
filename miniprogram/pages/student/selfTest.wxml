@@ -1,0 +1,36 @@
+<van-button type="primary" style="margin:30rpx;display:block;" bind:click="goBack">返回搜索</van-button>
+
+<van-divider></van-divider>
+  <van-cell title="{{  currentInfo.questionDescribe}}"></van-cell>
+  <view wx-if="{{currentInfo.type == 1}}">
+    
+  <van-row class="toTop2">
+  <van-col offset="1" span="11" >
+  <van-button bind:click="selectClass" data-option="A" color="#E5446D">A.题目推荐</van-button>
+  </van-col>
+  
+  <van-col offset="1" span="11" >
+  <van-button bind:click="selectClass" data-option="B" color="#E5446D">B.题目推荐</van-button>
+  
+  </van-col>
+  <van-divider></van-divider>
+  <van-col  offset="1" span="11" >
+  <van-button bind:click="selectClass" data-option="C" color="#E5446D">C.题目推荐</van-button>
+  </van-col>
+  <van-col offset="1" span="11" >
+  <van-button bind:click="selectClass" color="#E5446D" data-option="D">D.题目推荐</van-button>
+  </van-col>
+</van-row>
+  </view>
+  <view wx-if="{{currentInfo.type == 2}}">
+    <van-divider></van-divider>
+    <van-field label="填空题答案：" model:value="{{currentAnswer}}"></van-field>
+  </view>
+
+<van-row class="toTop" style="margin-bottom: 50rpx;">
+<van-col offset="16" span="5">
+  <van-button bind:click="confirm">确认</van-button>
+</van-col>
+</van-row>
+
+<van-field wx:if="{{showAnswer}}" label="正确答案："  value="{{currentInfo.answerContent}}" ></van-field>

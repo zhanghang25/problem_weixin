@@ -16,7 +16,9 @@
     "pages/student/publishPaper",
     "pages/student/classReport",
     "pages/student/paperInfo",
-    "pages/student/paperAnalysis"
+    "pages/student/paperAnalysis",
+    "pages/student/selfTest",
+    "pages/student/searchTest"
   ],
   "usingComponents": {
     "van-field": "@vant/weapp/field/index",

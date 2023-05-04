@@ -20,11 +20,17 @@ App({
 
      if (teacher_res){
       this.globalData.userInfo = teacher_res;
+     
+    } else if(student_res ){
+      this.globalData.userInfo = student_res;
+      
+    }
+
+    if (teacher_res){
       wx.redirectTo({
         url: '/pages/teacher/index',
       })
     } else if(student_res ){
-      this.globalData.userInfo = student_res;
       wx.redirectTo({
         url: '/pages/student/joinClass',
       })

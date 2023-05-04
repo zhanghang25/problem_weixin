@@ -27,8 +27,17 @@
   </van-col>
 </van-row>
   </view>
-  <view wx-else>
+  <view wx-if="{{currentInfo.type == 2}}">
     <van-divider></van-divider>
     <van-field label="填空题答案：" model:value="{{currentAnswer}}"></van-field>
   </view>
+
+  <van-row style="margin: 50rpx;display:block;">
+<van-col span="6" offset="3">
+  <van-button bind:click="prev">上一题</van-button>
+</van-col>
+<van-col span="6" offset="6">
+  <van-button bind:click="next">下一题</van-button>
+</van-col>
+</van-row>
 </van-cell-group>

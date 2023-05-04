@@ -1,0 +1,23 @@
+
+<van-toast id="van-toast" />
+<van-field style="margin:30rpx;display:block;" placeholder="请输入搜索信息" value="{{search}}">
+  <van-button bind:click="getTest" color="green" slot="button">搜索</van-button>
+</van-field>
+<van-cell style="display: block; margin: 30rpx;">
+<view slot="title">
+  
+  该门课程已练习题目数量{{list.length}}道！
+</view>
+</van-cell>
+
+<van-cell-group title="搜索结果">
+
+  <view wx:for="{{list}}">
+    
+  <van-cell title="{{item.questionDescribe}}">
+  
+  </van-cell>
+  <van-divider></van-divider>
+  </view>
+
+</van-cell-group>
