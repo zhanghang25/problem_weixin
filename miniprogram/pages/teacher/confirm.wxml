@@ -4,7 +4,7 @@
     bind:click-input="getChange"
     disabled="{{true}}"
     model:value="{{name}}"
-    placeholder="请输入用户名"
+    placeholder="请输入班级名"
     label="姓名："
     left-icon="contact"
   />

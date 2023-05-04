@@ -62,6 +62,8 @@
 <view wx:if="{{type==1}}">
 <van-cell-group title="选择题选项">
   <van-field
+    data-option1="A"
+    bind:click-input="setAnswer"
     model:value="{{optionA}}"
     placeholder="请输入选项A"
     label="选项A："
@@ -69,6 +71,8 @@
     autosize
   />
   <van-field
+  data-option1="B"
+    bind:click-input="setAnswer"
     model:value="{{optionB}}"
     placeholder="请输入选项B"
     label="选项B："
@@ -76,6 +80,8 @@
     autosize
   />
   <van-field
+  data-option1="C"
+    bind:click-input="setAnswer"
     model:value="{{optionC}}"
     placeholder="请输入选项C"
     label="选项C："
@@ -83,6 +89,8 @@
     autosize
   />
   <van-field
+  data-option1="D"
+    bind:click-input="setAnswer"
     model:value="{{optionD}}"
     placeholder="请输入选项D"
     label="选项D："
@@ -107,6 +115,7 @@
 <van-cell-group title="正确答案：" >
 <van-field
 disabled="{{type == 1 }}"
+
     model:value="{{answerContent}}"
     placeholder="请输入正确答案"
     label="正确答案："

@@ -23,7 +23,12 @@ Page({
     order: '',
     answerContent: 'D'
   },
-
+  setAnswer(event){
+    console.log(event)
+    this.setData({
+      answerContent: event.currentTarget.dataset.option1
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
