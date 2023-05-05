@@ -15,4 +15,34 @@
 
 </view>
 </view>
+<view slot="footer">
+  <van-button bind:click="setProfile" color="green">重置个人信息</van-button>
+</view>
 </van-card>
+
+
+<view style="width: 100%;text-align: center;" class="toTop">
+    <van-button bind:click="myPaper" color="red" >我的试卷库</van-button>
+</view>
+
+<view style="width: 100%;text-align: center;margin-top: 70rpx;" >
+    <van-button bind:click="myError" color="red" >我的错题</van-button>
+</view>
+
+<view style="width: 100%;text-align: center;margin-top: 70rpx;" >
+    <van-button bind:click="help" color="red" >帮助</van-button>
+</view>
+
+<van-dialog
+  use-slot
+  title="标题"
+  show="{{ show }}"
+  show-cancel-button
+  bind:close="onClose"
+  bind:confirm="getUserInfo"
+>
+  <van-field label="姓名：" model:value="{{studentName}}"></van-field>
+  <van-field label="学号：" model:value="{{studentId}}"></van-field>
+</van-dialog>
+
+<footer></footer>

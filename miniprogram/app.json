@@ -21,7 +21,9 @@
     "pages/student/searchTest",
     "pages/student/questionRecommend",
     "pages/student/recommendDetail",
-    "pages/student/person"
+    "pages/student/person",
+    "pages/student/myerrors",
+    "pages/student/mypaper"
   ],
   "usingComponents": {
     "van-field": "@vant/weapp/field/index",
@@ -41,6 +43,7 @@
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "van-overlay": "@vant/weapp/overlay/index",
     "van-card": "@vant/weapp/card/index",
+    "van-dialog": "@vant/weapp/dialog/index",
     "van-picker": "@vant/weapp/picker/index"
   },
   "window": {

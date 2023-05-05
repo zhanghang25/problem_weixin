@@ -1,5 +1,6 @@
 // pages/student/selfTest.js
 const app = getApp()
+import Toast from '@vant/weapp/toast/toast';
 Page({
 
   /**
@@ -21,7 +22,7 @@ Page({
 
   selectClass(event){
     this.setData({
-      MyAnswer: event.currentTarget.dataset.option1
+      MyAnswer: event.currentTarget.dataset.option
     })
   },
   /**
@@ -38,7 +39,25 @@ Page({
         that.getInfo(data)
       })
   },
-  confirm(){
+  async confirm(){
+    console.log(this.data.MyAnswer)
+    if(!this.data.MyAnswer){
+      Toast.fail("请选择答案！")
+      return
+    }
+    await app.call({
+      path: "/answers/create",
+      data:{
+        questionId: this.data.currentInfo.id,
+        studentId: app.globalData.userInfo.id,
+        stuAnswerContent: this.data.MyAnswer,
+        answerContent: this.data.currentInfo.answerContent,
+        score: this.data.currentInfo.score,
+
+      }
+    })
+    Toast.success("答题成功！")
+
     this.setData({
       showAnswer: true
     })

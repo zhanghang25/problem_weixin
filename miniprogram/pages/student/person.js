@@ -7,17 +7,52 @@ Page({
    */
   data: {
     defaultAvatarUrl : '/images/file/user.png',
-    userInfo: {}
+    userInfo: {},
+    show: false,
+    studentName: '',
+    studentId:'' ,
   },
-
+  setProfile(){
+    this.setData({
+      show: true
+    })
+  },
+  myPaper(){
+    wx.navigateTo({
+      url: '/pages/student/mypaper',
+    })
+  },
+  myError(){
+    wx.navigateTo({
+      url: '/pages/student/myerrors',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.setInfo()
+  },
+  setInfo(){
     this.setData({
-      userInfo: app.globalData.userInfo
+      userInfo: app.globalData.userInfo,
+      studentId: app.globalData.userInfo.studentId,
+      studentName: app.globalData.userInfo.studentName
     })
   },
+
+ async getUserInfo(event){
+    this.data.userInfo.studentName  = this.data.studentName
+    this.data.userInfo.studentId  = this.data.studentId
+      await app.call({
+      path: '/students/update',
+      data: this.data.userInfo
+    })
+    await app.initInfo()
+    this.setInfo()
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

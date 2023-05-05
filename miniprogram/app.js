@@ -7,7 +7,7 @@ App({
     this.init()
     
   },
-  async init(){
+   async initInfo(){
     const student_res = await  this.call({
       path: '/students/myInfo',
       method: "GET",
@@ -25,12 +25,16 @@ App({
       this.globalData.userInfo = student_res;
       
     }
+   },
 
-    if (teacher_res){
+  init(){
+   this.initInfo()
+
+    if (Object.keys(this.globalData.userInfo).includes("teacherName")){
       wx.redirectTo({
         url: '/pages/teacher/index',
       })
-    } else if(student_res ){
+    } else if(Object.keys(this.globalData.userInfo).includes("studentName") ){
       wx.redirectTo({
         url: '/pages/student/joinClass',
       })

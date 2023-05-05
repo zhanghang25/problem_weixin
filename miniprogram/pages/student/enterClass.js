@@ -1,5 +1,6 @@
 // pages/student/enterClass.js
 
+import Toast from '@vant/weapp/toast/toast';
 const app = getApp()
 Page({
 
@@ -46,6 +47,7 @@ Page({
         classId: detail.currentTarget.dataset.classid
       }
     })
+    Toast.success("选择成功")
   },
 
   convertToTree(flatData){

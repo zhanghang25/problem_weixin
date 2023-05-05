@@ -112,6 +112,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "person",
+          "pathName": "pages/student/person",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "test",
+          "pathName": "pages/student/selfTest",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
