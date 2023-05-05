@@ -18,7 +18,10 @@
     "pages/student/paperInfo",
     "pages/student/paperAnalysis",
     "pages/student/selfTest",
-    "pages/student/searchTest"
+    "pages/student/searchTest",
+    "pages/student/questionRecommend",
+    "pages/student/recommendDetail",
+    "pages/student/person"
   ],
   "usingComponents": {
     "van-field": "@vant/weapp/field/index",
@@ -37,6 +40,7 @@
     "van-loading": "@vant/weapp/loading/index",
     "van-tabbar-item": "@vant/weapp/tabbar-item/index",
     "van-overlay": "@vant/weapp/overlay/index",
+    "van-card": "@vant/weapp/card/index",
     "van-picker": "@vant/weapp/picker/index"
   },
   "window": {

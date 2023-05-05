@@ -38,7 +38,7 @@ App({
   },
 
   globalData: {
-    weixinServer: 'problem-end',
+    weixinServer: 'problem-diy',
     userInfo: {}
   },
   successCheck(res){

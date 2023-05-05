@@ -13,10 +13,14 @@ Component({
             console.log(1112)
             this.setData({active:'classPaper'})
             break;
-          case 'pages/student/test':
-            console.log(1113)
-            this.setData({active:'test'})
-            break;
+            case 'pages/student/test':
+              console.log(1113)
+              this.setData({active:'test'})
+              break;
+              case 'pages/student/person':
+                console.log(1114)
+                this.setData({active:'friends'})
+                break;
         }
       }
 
@@ -37,6 +41,10 @@ Component({
       }else if(event.detail == 'test'){
         wx.redirectTo({
           url: '/pages/student/test',
+        })
+      }else if(event.detail == 'friends'){
+        wx.redirectTo({
+          url: '/pages/student/person',
         })
       }
       console.log(event)

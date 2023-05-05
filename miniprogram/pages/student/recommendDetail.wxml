@@ -1,0 +1,43 @@
+<van-cell-group>
+  <van-cell title="试卷1" use-label-slot>
+  <view slot="label">
+    <van-tag size="large" type="success">时间倒计时：{{endTime}}</van-tag>
+  </view>
+  </van-cell>
+
+  <van-divider></van-divider>
+  <van-cell title="{{ '第'+currentIndex+'题：'+ currentInfo.questionDescribe}}"></van-cell>
+  <view wx-if="{{currentInfo.type == 1}}">
+    
+  <van-row class="toTop2">
+  <van-col offset="1" span="11" >
+  <van-button bind:click="selectClass" color="#E5446D">A.题目推荐</van-button>
+  </van-col>
+  
+  <van-col offset="1" span="11" >
+  <van-button bind:click="selectClass" color="#E5446D">B.题目推荐</van-button>
+  
+  </van-col>
+  <van-divider></van-divider>
+  <van-col  offset="1" span="11" >
+  <van-button bind:click="selectClass" color="#E5446D">C.题目推荐</van-button>
+  </van-col>
+  <van-col offset="1" span="11" >
+  <van-button bind:click="selectClass" color="#E5446D">D.题目推荐</van-button>
+  </van-col>
+</van-row>
+  </view>
+  <view wx-if="{{currentInfo.type == 2}}">
+    <van-divider></van-divider>
+    <van-field label="填空题答案：" model:value="{{currentAnswer}}"></van-field>
+  </view>
+
+  <van-row style="margin: 50rpx;display:block;">
+<van-col span="8" offset="1">
+  <van-button bind:click="prev">上一题</van-button>
+</van-col>
+<van-col span="8" offset="4">
+  <van-button bind:click="next">下一题</van-button>
+</van-col>
+</van-row>
+</van-cell-group>

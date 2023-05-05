@@ -26,7 +26,7 @@ Page({
 
     console.log(list)
     this.setData({
-      list: list
+      list: list.records
     })
 
   },
@@ -35,6 +35,15 @@ Page({
    */
   onLoad(options) {
 
+  },
+  toDetail(event){
+    console.log(event)
+    wx.navigateTo({
+      url: '/pages/student/selfTest',
+      success: function(res){
+        res.eventChannel.emit("sendTest",event.currentTarget.dataset.set)
+      }
+    })
   },
 
   /**

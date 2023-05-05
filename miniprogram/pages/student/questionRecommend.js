@@ -1,23 +1,19 @@
-// pages/student/test.js
+// pages/student/questionRecommend.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: [{title:"试卷1"},{title:"试卷2"},{title:"试卷3"}]
   },
 
-  createClass(){
+  toRecommendDetail(){
     wx.navigateTo({
-      url: '/pages/student/searchTest',
+      url: '/pages/student/recommendDetail',
     })
   },
-  selectClass(){
-    wx.navigateTo({
-      url: '/pages/student/questionRecommend',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

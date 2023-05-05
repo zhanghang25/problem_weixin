@@ -1,4 +1,5 @@
 // pages/student/selfTest.js
+const app = getApp()
 Page({
 
   /**
@@ -9,6 +10,8 @@ Page({
       type: 1,
       questionDescribe: "第一台计算机是1946年美国研制的,该机英文缩写名为(  ).	"
     },
+    option: [],
+    myId: '',
     showAnswer:false,
     MyAnswer: ''
   },
@@ -25,7 +28,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    let that = this;
+    const eventChannel = this.getOpenerEventChannel()
+      eventChannel.on('sendTest',function(data){
+        console.log(data)
+        that.setData({
+          myId:data
+        })
+        that.getInfo(data)
+      })
+  },
+  confirm(){
+    this.setData({
+      showAnswer: true
+    })
+  },
+  async getInfo(id){
+    const info =  await app.call({
+      path: '/questions/'+id,
+      method: 'GET'
+    })
 
+    this.setData({
+      currentInfo: info
+    })
+    if(info.type == 1){
+      let option = info.otherAnswer.split(",")
+      this.setData({
+        option
+      })
+    }
+
+
+    console.log(info)
   },
 
   /**

@@ -1,0 +1,18 @@
+<van-card
+  title="身份信息"
+  thumb="{{ defaultAvatarUrl }}"
+>
+
+
+<view style="margin-top: 30rpx;" slot="desc">
+
+<view>
+  姓名：{{userInfo.studentName}}
+
+</view>
+<view style="margin-top: 20rpx;">
+  学号：{{userInfo.studentId}}
+
+</view>
+</view>
+</van-card>

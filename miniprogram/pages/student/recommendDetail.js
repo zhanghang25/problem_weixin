@@ -1,23 +1,35 @@
-// pages/student/test.js
+// pages/student/paperInfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    endTime:"60:00",
+    pageInfo: {},
+    currentInfo: {
+      type: 1,
+      questionDescribe: "第一台计算机是1946年美国研制的,该机英文缩写名为(  ).	"
+    },
+    currentIndex: 1,
+    currentAnswer: '请输入填空内容，多个选项按英文逗号分割',
   },
 
-  createClass(){
-    wx.navigateTo({
-      url: '/pages/student/searchTest',
+  next(){
+    this.setData({
+      currentIndex:(this.data.currentIndex+1)
     })
   },
-  selectClass(){
-    wx.navigateTo({
-      url: '/pages/student/questionRecommend',
+
+  prev(){
+    if(this.data.currentIndex == 1){
+      return ;
+    }
+    this.setData({
+      currentIndex:(this.data.currentIndex-1)
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */

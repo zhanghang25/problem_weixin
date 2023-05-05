@@ -1,0 +1,10 @@
+<van-cell title="已做答试卷"  >
+
+</van-cell>
+
+<van-divider></van-divider>
+
+<view wx:for="{{list}}">
+  <van-cell bind:click="toRecommendDetail" is-link title="{{item.title}}"></van-cell>
+  <van-divider></van-divider>
+</view>

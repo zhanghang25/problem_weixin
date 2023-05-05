@@ -1,28 +1,22 @@
-// pages/student/test.js
+// pages/student/person.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    defaultAvatarUrl : '/images/file/user.png',
+    userInfo: {}
   },
 
-  createClass(){
-    wx.navigateTo({
-      url: '/pages/student/searchTest',
-    })
-  },
-  selectClass(){
-    wx.navigateTo({
-      url: '/pages/student/questionRecommend',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
   },
 
   /**

@@ -6,19 +6,19 @@
     
   <van-row class="toTop2">
   <van-col offset="1" span="11" >
-  <van-button bind:click="selectClass" data-option="A" color="#E5446D">A.题目推荐</van-button>
+  <van-button bind:click="selectClass" data-option="A" color="#E5446D">A.{{option[0]}}</van-button>
   </van-col>
   
   <van-col offset="1" span="11" >
-  <van-button bind:click="selectClass" data-option="B" color="#E5446D">B.题目推荐</van-button>
+  <van-button bind:click="selectClass" data-option="B" color="#E5446D">B.{{option[1]}}</van-button>
   
   </van-col>
   <van-divider></van-divider>
   <van-col  offset="1" span="11" >
-  <van-button bind:click="selectClass" data-option="C" color="#E5446D">C.题目推荐</van-button>
+  <van-button bind:click="selectClass" data-option="C" color="#E5446D">C.{{option[2]}}</van-button>
   </van-col>
   <van-col offset="1" span="11" >
-  <van-button bind:click="selectClass" color="#E5446D" data-option="D">D.题目推荐</van-button>
+  <van-button bind:click="selectClass" color="#E5446D" data-option="D">D.{{option[3]}}</van-button>
   </van-col>
 </van-row>
   </view>

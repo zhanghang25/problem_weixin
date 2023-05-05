@@ -1,6 +1,6 @@
 
 <van-toast id="van-toast" />
-<van-field style="margin:30rpx;display:block;" placeholder="请输入搜索信息" value="{{search}}">
+<van-field style="margin:30rpx;display:block;" placeholder="请输入搜索信息" model:value="{{search}}">
   <van-button bind:click="getTest" color="green" slot="button">搜索</van-button>
 </van-field>
 <van-cell style="display: block; margin: 30rpx;">
@@ -12,9 +12,9 @@
 
 <van-cell-group title="搜索结果">
 
-  <view wx:for="{{list}}">
+  <view wx:key="id" wx:for-index="ccc" wx:for="{{list}}">
     
-  <van-cell title="{{item.questionDescribe}}">
+  <van-cell data-set="{{item.id}}" bind:click="toDetail" title="{{(ccc+1)+'.'+ item.questionDescribe}}">
   
   </van-cell>
   <van-divider></van-divider>
