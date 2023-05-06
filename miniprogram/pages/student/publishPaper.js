@@ -1,11 +1,14 @@
 // pages/student/publishPaper.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    myId: '',
+    paperList: [],
+    className: '',
   },
   toClassReport(){
     wx.navigateTo({
@@ -16,13 +19,38 @@ Page({
   toInfo(){
     wx.navigateTo({
       url: '/pages/student/paperInfo',
+      success: function(res){
+        res.eventChannel.emit("sendInfo",)
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    let that = this;
+    const eventChannel = this.getOpenerEventChannel()
+      eventChannel.on('sendTest',function(data){
+        console.log(data)
+        that.setData({
+          myId:data.id,
+          className: data.className
+        })
+        that.getInfo(data.id)
+      })
+  },
+  async getInfo(id){
+    let res = await  app.call({
+        path: "/classes/classPapers",
+        method: "GET",
+        data: {
+          classId: id
+        }
+      })
+      this.setData({
+        paperList: res
+      })
+      console.log(res)
   },
 
   /**

@@ -8,9 +8,15 @@ Page({
   data: {
     myJoinClass: []
   },
-  toPublishPaper(){
+  toPublishPaper(event){
     wx.navigateTo({
       url: '/pages/student/publishPaper',
+      success:function(res){
+        res.eventChannel.emit("sendTest",{
+          id: event.currentTarget.dataset.id,
+          className: event.currentTarget.dataset.name
+        })
+      }
     })
   },
   toEnterClass(){
