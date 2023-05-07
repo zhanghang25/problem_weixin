@@ -84,12 +84,7 @@ Page({
       code: ''
       
     })
-    const res = await app.call({
-      path: '/classes/list',
-      method: 'GET',
-      data:{}
-    })
-    console.log(res)
+    
     Toast.success("重置成功！")
   },
 
@@ -97,26 +92,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+   */ 
+  async onReady() {
+    await app.init()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  async onShow() {
-    const res = await app.call({
-      path: '/classes/list',
-      method: 'GET',
-      data:{}
-    })
-    console.log(res)
+   onShow() {
+    app.init()
   },
 
   /**

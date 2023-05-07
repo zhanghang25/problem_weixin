@@ -1,6 +1,6 @@
 <!--pages/student/paperAnalysis.wxml-->
 <van-cell-group>
-  <van-cell title="试卷1作答信息">
+  <van-cell title="{{testName+'作答信息'}}">
 
 </van-cell>
 <van-divider>
@@ -8,8 +8,11 @@
 <van-cell  >
   <view slot="title">
     <view>正确题目：</view>
-    
-    <view> 第一题：</view>
+    <view wx:for="{{right_list}}"> 
+      
+      
+    <view > 第{{item.num}}题：你的答案{{item.stuAnswerContent}},标准答案{{item.answerContent}}</view>
+    </view>
   </view>
 </van-cell>
 <van-divider>
@@ -18,7 +21,11 @@
   <view slot="title">
     <view>错误题目：</view>
     
-    <view> 第二题：</view>
+    <view wx:for="{{error_list}}"> 
+      
+      
+      <view > 第{{item.num}}题：你的答案{{item.stuAnswerContent}},标准答案{{item.answerContent}}</view>
+      </view>
   </view>
 </van-cell>
 </van-cell-group>

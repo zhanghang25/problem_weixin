@@ -1,18 +1,35 @@
 // pages/student/myerrors.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    error_list: [],
+    right_list: []
+  },
+  async getInfo(id){
+    let list =  await app.call({
+      path:"/papers/myErrors",
+      data: {
+        studentId: app.globalData.userInfo.id
+      },
+      method: "GET"
+    })
+    console.log(list)
+   
+
+    this.setData({
+      error_list:list
+    })
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  async onLoad(options) {
+    await this.getInfo()
   },
 
   /**

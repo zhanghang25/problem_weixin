@@ -1,7 +1,11 @@
 <van-cell-group>
-  <van-cell title="试卷1" use-label-slot>
-  <view slot="label">
-    <van-tag size="large" type="success">时间倒计时：{{endTime}}</van-tag>
+<view wx:if="{{currentIndex <= list.length}}">
+  <van-cell use-label-slot >
+  <view style="width: 100%;display: block;text-align: center;" slot="title">
+    {{"<<"+testName+">>"}}
+  </view>
+  <view style="width: 100%;display: block;text-align: center;" slot="label">
+    <van-tag size="large" type="success">时间倒计时：{{endTimeStr}}</van-tag>
   </view>
   </van-cell>
 
@@ -11,19 +15,19 @@
     
   <van-row class="toTop2">
   <van-col offset="1" span="11" >
-  <van-button bind:click="selectClass" color="#E5446D">A.题目推荐</van-button>
+  <van-button bind:click="selectClass" data-option="A" color="{{currentAnswer == 'A'?'black':'#E5446D'}}">A.{{currentSelect[0]}}</van-button>
   </van-col>
   
   <van-col offset="1" span="11" >
-  <van-button bind:click="selectClass" color="#E5446D">B.题目推荐</van-button>
+  <van-button bind:click="selectClass" data-option="B" color="{{currentAnswer == 'B'?'black':'#E5446D'}}">B.{{currentSelect[1]}}</van-button>
   
   </van-col>
   <van-divider></van-divider>
   <van-col  offset="1" span="11" >
-  <van-button bind:click="selectClass" color="#E5446D">C.题目推荐</van-button>
+  <van-button bind:click="selectClass" data-option="C" color="{{currentAnswer == 'C'?'black':'#E5446D'}}">C.{{currentSelect[2]}}</van-button>
   </van-col>
   <van-col offset="1" span="11" >
-  <van-button bind:click="selectClass" color="#E5446D">D.题目推荐</van-button>
+  <van-button bind:click="selectClass" data-option="D" color="{{currentAnswer == 'D'?'black':'#E5446D'}}">D.{{currentSelect[3]}}</van-button>
   </van-col>
 </van-row>
   </view>
@@ -31,13 +35,20 @@
     <van-divider></van-divider>
     <van-field label="填空题答案：" model:value="{{currentAnswer}}"></van-field>
   </view>
-
+  
+</view>
   <van-row style="margin: 50rpx;display:block;">
 <van-col span="6" offset="3">
   <van-button bind:click="prev">上一题</van-button>
 </van-col>
 <van-col span="6" offset="6">
-  <van-button bind:click="next">下一题</van-button>
+
+  <van-button wx:if="{{currentIndex <= list.length}}" bind:click="next">下一题</van-button>
+  <van-button wx-if="{{currentIndex > list.length}}" bind:click="submit"  >提交</van-button>
 </van-col>
 </van-row>
 </van-cell-group>
+
+
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />

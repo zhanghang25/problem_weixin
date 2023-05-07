@@ -1,2 +1,11 @@
 <van-cell title="错题信息："></van-cell>
 
+<view wx:for="{{error_list}}">
+<van-cell title="{{'题目：'+ item.questionDescribe}}"></van-cell>
+<view style="margin: 40rpx;">
+  
+  
+  错误答案：<van-tag style="margin: 20rpx" color="red">{{item.stuAnswerContent}}</van-tag>
+  标准答案：<van-tag style="margin: 20rpx" color="green">{{item.answerContent}}</van-tag>
+</view>
+</view>

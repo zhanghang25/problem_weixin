@@ -27,8 +27,8 @@ App({
     }
    },
 
-  init(){
-   this.initInfo()
+ async init(){
+   await this.initInfo()
 
     if (Object.keys(this.globalData.userInfo).includes("teacherName")){
       wx.redirectTo({
@@ -42,7 +42,7 @@ App({
   },
 
   globalData: {
-    weixinServer: 'problem-diy',
+    weixinServer: 'problem-end',
     userInfo: {}
   },
   successCheck(res){

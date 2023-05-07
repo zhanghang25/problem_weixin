@@ -3,7 +3,7 @@
 <van-cell-group style="margin-top: 45rpx;display: block;" inset>
   <van-cell custom-class="black" title="{{ className + '已发布试卷'}}"></van-cell>
   <view wx:for="{{paperList}}">
-    <van-cell is-link data-id="{{item.testId}}"  bind:click="toInfo" title="{{item.testName}}"></van-cell>
+    <van-cell is-link data-id="{{item.testId}}" data-name="{{item.testName}}"  bind:click="toInfo" title="{{item.testName}}"></van-cell>
   <van-divider></van-divider>
   </view>
   

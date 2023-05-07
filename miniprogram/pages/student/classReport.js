@@ -1,25 +1,72 @@
 // pages/student/classReport.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    total_info: "试卷总得分：85分(所有考试平均分百分制)"
+    avg_score: 0,
+    list: [],
+    keywords: "计算机历史，算法，数据结构",
+    className: '',
+    id: '',
   },
-  toPaperInfo(){
+  toPaperInfo(event){
+    let that = this
     wx.navigateTo({
       url: '/pages/student/paperAnalysis',
+      success: function(res){
+        res.eventChannel.emit("sendInfo",{
+          id: event.currentTarget.dataset.id,
+          testName: event.currentTarget.dataset.testName
+        })
+      }
     })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  async onLoad(options) {
+    let that = this;
+    const eventChannel = this.getOpenerEventChannel()
+      eventChannel.on('sendName' , async function(data){
+        console.log(data)
+        that.setData({
+          id:data.id,
+          className: data.name
+        })
+        await that.getList()
+      })
   },
+  async  getList(){
+    let that = this;
+   let res = await app.call({
+      path: "/answers/hasPapers",
+      data:{
+        studentId: app.globalData.userInfo.id,
+        classId: that.data.id
+      },
+      method:"GET"
+    })
 
+    let result = res.map(item=>{
+      item.avg_score = Math.floor(parseInt(item.yourScore)/parseInt(item.officeScore)*100)
+
+      return item
+    })
+
+    let all_score = result.reduce((a,b)=>{return a+b.avg_score},0)
+    console.log(all_score)
+
+
+    console.log(res)
+    this.setData({
+      avg_score: Math.floor(all_score/result.length),      
+      list: result
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

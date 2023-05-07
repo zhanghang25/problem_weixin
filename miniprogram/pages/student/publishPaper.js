@@ -11,16 +11,25 @@ Page({
     className: '',
   },
   toClassReport(){
+    let that = this
     wx.navigateTo({
       url: '/pages/student/classReport',
+      success: function(res){
+        res.eventChannel.emit("sendName",{
+          id:that.data.myId,
+          name: that.data.className
+        })
+      }
     })
   },
 
-  toInfo(){
+  toInfo(event){
     wx.navigateTo({
       url: '/pages/student/paperInfo',
       success: function(res){
-        res.eventChannel.emit("sendInfo",)
+        res.eventChannel.emit("sendTest",{id:event.currentTarget.dataset.id,
+            name:event.currentTarget.dataset.name}
+          )
       }
     })
   },

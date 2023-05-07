@@ -1,10 +1,12 @@
-<view style="text-align:center;margin-block: 30rpx;">我的某某班的课程报告</view>
+<view style="text-align:center;margin-block: 30rpx;">{{className}}的课程报告</view>
 <van-cell-group style="margin-top: 45rpx;display: block;" inset>
-  <van-cell custom-class="black" title="错题关键字：XX,XX"></van-cell>
-  <van-cell custom-class="white"  title="{{total_info}}"></van-cell>
-  <van-cell bind:click="toPaperInfo" title="试卷1" value="得分：100"></van-cell>
+  <van-cell custom-class="black" title="{{'错题关键字：'+keywords}}"></van-cell>
+  <van-cell custom-class="white"  title="{{'试卷总得分：'+(avg_score? avg_score:0) +'分(所有考试平均分百分制)'}}"></van-cell>
+  
+ <view wx:for="{{list}}">
+  <van-cell data-testName="{{item.testName}}" bind:click="toPaperInfo" data-id="{{item.testId}}" title="{{item.testName}}" value="{{'得分：'+item.avg_score}}"></van-cell>
   <van-divider></van-divider>
-  <van-cell title="试卷2"></van-cell>
-  <van-divider></van-divider>
-  <van-cell title="试卷3"></van-cell>
+ </view>
+
+ 
 </van-cell-group>
