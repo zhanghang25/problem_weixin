@@ -109,7 +109,7 @@ Page({
       answerContent: this.data.answerContent,
       
     })
-    // this.empty()
+    this.empty()
   }else{
     this.data.list[this.data.currentSelf -1] = {
       type: this.data.type,
