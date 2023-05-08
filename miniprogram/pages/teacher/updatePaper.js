@@ -36,7 +36,7 @@ Page({
       path:"/papers/updateBatch",
       data: {
         testId: this.data.testId,
-        statusId: 2
+        statusId: 1
       }
     })
 
