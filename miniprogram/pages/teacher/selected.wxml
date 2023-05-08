@@ -35,7 +35,7 @@
   <view slot="label">
     <view class="flex">
       <van-tag class="toRightTag" size="large" type="success">题目数量: {{paperItem.paperCount}}</van-tag>
-      <van-tag size="large" class="toRightTag" color="{{paperItem.statusId==1?'#E5446D':'#FFC857'}}" >发布状态:{{paperItem.statusId==1?"未发布":"已发布"}}</van-tag>
+      <van-tag size="large" class="toRightTag" color="{{paperItem.statusId==1?'#E5446D':'#FFC857'}}" >发布状态:{{paperItem.statusId==1?"已发布":"未发布"}}</van-tag>
     </view>
    
   </view>

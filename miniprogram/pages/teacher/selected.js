@@ -11,7 +11,7 @@ Page({
   toPaperDesign(event){
     console.log(event)
     let that = this 
-    if(event.target.dataset.state == 2){
+    if(event.target.dataset.state == 1){
       
       wx.navigateTo({
         url: '/pages/teacher/analysis',
