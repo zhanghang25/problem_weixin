@@ -20,13 +20,52 @@ Page({
     optionC: 'EDVAC',
     optionD: 'ENIAC',
     score:'10',
+    answerContent: 'D',
     order: '',
-    answerContent: 'D'
+    fakeList: [
+      { type: "1",
+      source: "2",
+      keywords: '计算机历史',
+      questionDescribe: '下列设备属于资源子网的是_____',
+      optionA: '计算机软件',
+      optionB: '网桥',
+      optionC: '交换机',
+      optionD: '路由器',
+      score:'10',
+      answerContent: 'A'},
+      { type: "1",
+      source: "2",
+      keywords: '计算机历史',
+      questionDescribe: '下面哪种拓扑技术可以使用集线器作为连接器？',
+      optionA: '双环状',
+      optionB: '单环状',
+      optionC: '总线状',
+      optionD: '星状',
+      score:'10',
+      answerContent: 'D'},
+      { type: "1",
+      source: "2",
+      keywords: '计算机历史',
+      questionDescribe: '计算机网络拓扑是通过网中结点与通信线路之间的几何关系表示网络结构，反映出网络中各实体间的____	',
+      optionA: '结构关系',
+      optionB: '主从关系',
+      optionC: '接口关系',
+      optionD: '层次关系',
+      score:'10',
+      answerContent: 'A',}
+    ]
+
   },
   setAnswer(event){
     console.log(event)
     this.setData({
       answerContent: event.currentTarget.dataset.option1
+    })
+  },
+  fakeSearch(){
+    this.setData(this.data.fakeList[(this.data.currentGarbage -1)%3])
+    this.setData({
+      currentGarbage:this.data.currentGarbage+1
     })
   },
   /**

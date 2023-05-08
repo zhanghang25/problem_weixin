@@ -2,6 +2,4 @@
 
 <view style="margin: 35rpx;text-align: center;">我的试卷库</view>
 
-<van-cell is-link style="margin-top: 50rpx;margin-inline: 35rpx;" title="试卷一"></van-cell>
-<van-cell is-link style="margin-top: 50rpx;margin-inline: 35rpx;" title="试卷二"></van-cell>
-<van-cell is-link style="margin-top: 50rpx;margin-inline: 35rpx;" title="试卷三"></van-cell>
+<van-cell wx:for="{{list}}" is-link style="margin-top: 50rpx;margin-inline: 35rpx;" title="{{item.testName}}"></van-cell>

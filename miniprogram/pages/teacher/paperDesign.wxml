@@ -31,7 +31,7 @@
     autosize
     use-button-slot
   >
-  <van-button wx:if="{{source == 2}}" slot="button" color="#E9724C" size="small">搜索</van-button>
+  <van-button wx:if="{{source == 2}}" bind:click="fakeSearch" slot="button" color="#E9724C" size="small">搜索</van-button>
   </van-field>
   </van-cell-group>
 <view style="margin: 20rpx;">

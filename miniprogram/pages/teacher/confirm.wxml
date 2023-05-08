@@ -39,4 +39,4 @@
     <van-loading type="spinner" color="#1989fa" />
   </view>
 </van-overlay>
-<van-picker show-toolbar="{{true}}" wx:if="{{showPicker}}" title="班级选择" columns="{{ columns }}" bind:change="onChange" />
+<van-picker bind:cancel="setHide" bind:confirm="setHide" show-toolbar="{{true}}" wx:if="{{showPicker}}" title="班级选择" columns="{{ columns }}" bind:change="onChange" />

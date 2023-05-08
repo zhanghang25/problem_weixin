@@ -69,6 +69,11 @@ Page({
     }
     return Num;
   },
+  setHide(){
+    this.setData({
+      showPicker:false
+    })
+  },
  async submit(){
     this.setData({
       showLoad: true
