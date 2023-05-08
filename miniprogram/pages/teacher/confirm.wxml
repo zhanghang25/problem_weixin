@@ -5,7 +5,7 @@
     disabled="{{true}}"
     model:value="{{name}}"
     placeholder="请输入班级名"
-    label="姓名："
+    label="名程："
     left-icon="contact"
   />
 </van-cell-group>

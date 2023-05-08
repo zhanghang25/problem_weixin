@@ -82,7 +82,7 @@ Page({
       path:"/questions/sendQuestions",
       data:{
         allList: JSON.stringify(this.data.list) ,
-        testName: this.data.name,
+        testName: this.data.paperName,
         testId: this.huoqu(),
         time:this.data.time,
         teacherId: app.globalData.userInfo.id,
