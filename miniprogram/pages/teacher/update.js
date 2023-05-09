@@ -13,6 +13,7 @@ Page({
     isUpdate: false,
     type: "1",
     source: "1",
+    id: "",
     keywords: '计算机历史',
     questionDescribe: '第一台计算机是1946年美国研制的,该机英文缩写名为(  ).	',
     optionA: 'MARK-II',
@@ -22,6 +23,7 @@ Page({
     score:'10',
     answerContent: 'D',
     order: '',
+    testId: '',
     fakeList: [
       { type: "1",
       source: "2",
@@ -71,25 +73,64 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad:function(options) {
+  onLoad: function(options) {
       this.empty()
       let that = this ;
       const eventChannel = this.getOpenerEventChannel()
-      eventChannel.on('sendData',function(data){
-        console.log(data)
-        that.setData({
-          isUpdate:data.data
-        })
-      })
-      eventChannel.on('sendTest',function(data){
+      eventChannel.on("sendTest",async function(data){
         console.log(data)
         that.setData({
           isUpdate:data.data,
-          testId,
+          testId: data.testId
         })
+
+        await that.getTestList(data.testId)
       })
-      
   },
+  async getTestList(id){
+    let list = await app.call({
+      path:"/papers/queryQuestions",
+      data:{
+
+        testId: id
+      },
+      method:"GET"
+    })
+    console.log(list)
+    list = list.map(this.convert)
+    this.setData({
+      list
+    })
+
+
+    this.setData(this.data.list[0])
+
+  },
+  convert(item){
+    let c_item = {}
+    c_item.type = item.type
+    c_item.id = item.id
+    c_item.source = item.source
+    c_item.score = item.score
+    c_item.order = item.order
+    c_item.answerContent = item.answerContent
+    c_item.questionDescribe = item.questionDescribe
+    c_item.keywords = "计算机历史"
+    if(item.type == 1){
+
+      let options = item.otherAnswer.split(",")
+      c_item.optionA = options[0]
+      c_item.optionB = options[1]
+      c_item.optionC = options[2]
+      c_item.optionD = options[3]
+      
+    }
+
+    return c_item;
+    
+
+  },
+  
   prev(){
     if(this.data.currentSelf <= 1  ){
       Toast.fail("已经到第一页了")
@@ -113,7 +154,7 @@ Page({
         score: this.data.score,
         order: this.data.order,
         answerContent: this.data.answerContent,
-        
+        id: this.data.id
       };
     }
     this.setData({
@@ -128,6 +169,7 @@ Page({
       score: this.data.list[this.data.currentSelf-2].score,
       order: this.data.list[this.data.currentSelf-2].order,
       answerContent: this.data.list[this.data.currentSelf-2].answerContent,
+      id: this.data.list[this.data.currentSelf-2].id,
     })
     
 
@@ -137,8 +179,11 @@ Page({
       currentSelf: this.data.currentSelf - 1
     })
   },
+  goBack(){
+    wx.navigateBack();
+  },
   next(){
-    if(!this.check()){
+    if(!this.check() || this.data.currentSelf>=this.data.list.length){
       return false;
     }
     if(this.data.currentSelf >= (this.data.list.length )){
@@ -153,6 +198,7 @@ Page({
       optionD: this.data.optionD,
       score: this.data.score,
       order: this.data.order,
+      id: this.data.id,
       answerContent: this.data.answerContent,
       
     })
@@ -169,6 +215,7 @@ Page({
       optionD: this.data.optionD,
       score: this.data.score,
       order: this.data.order,
+      id: this.data.id,
       answerContent: this.data.answerContent,
       
     };
@@ -183,6 +230,7 @@ Page({
       optionD: this.data.list[this.data.currentSelf].optionD,
       score: this.data.list[this.data.currentSelf].score,
       order: this.data.list[this.data.currentSelf].order,
+      id: this.data.list[this.data.currentSelf].id,
       answerContent: this.data.list[this.data.currentSelf].answerContent,
     })
   }
@@ -197,20 +245,20 @@ Page({
     console.log(this.data.list)
 
   },
-  goBack(){
-    wx.navigateBack();
-  },
-  toConfirm(){
+  async toConfirm(){
     // if(!this.next()){
     //   return;
     // }
     let that = this;
-    wx.navigateTo({
-      url: '/pages/teacher/confirm',
-      success: function(res){
-        res.eventChannel.emit('sendList',{"list":that.data.list})
+
+    await app.call({
+      path:"/questions/sendUpdateQuestions",
+      data:{
+        allList: JSON.stringify(this.data.list) ,
+        
       }
     })
+    wx.navigateBack()
   },
   empty(){
     this.setData({

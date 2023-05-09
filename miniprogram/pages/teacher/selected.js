@@ -16,7 +16,7 @@ Page({
       wx.navigateTo({
         url: '/pages/teacher/analysis',
         success: function(res){
-          res.eventChannel.emit('sendData',{data:true})
+          res.eventChannel.emit('sendTest',{"test":event.target.dataset.item,"class":that.data.my_class})
           
         }
       })

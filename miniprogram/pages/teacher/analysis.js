@@ -1,4 +1,5 @@
 // pages/teacher/analysis.js
+const app  = getApp()
 Page({
 
   /**
@@ -21,6 +22,7 @@ Page({
     total: 120,
     paperName: "计算机网络",
     time: 60,
+    testId: '',
     avg: 90.82,
     errors: "计算机网络，子网，IP"
   },
@@ -29,7 +31,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    let that = this ;
+    const eventChannel = this.getOpenerEventChannel()
+    eventChannel.on('sendTest',async function(data1){
+      console.log(data1)
+      let cons = await app.call({
+        path:"/answers/avgScore",
+        data:{
+          testId: data1.test.testId
+        },
+        method:"GET"
+      })
+      console.log(cons)
+      that.setData({
+        name: data1.test.className,
+        code: data1.test.classId,
+        count: data1.test.paperCount,
+        time: data1.test.time,
+        paperName: data1.test.testName,
+        testId: data1.test.testId,
+        avg: cons.avg,
+        errors: cons.keyword
+      })
+    })
   },
 
   /**

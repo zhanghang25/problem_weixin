@@ -23,7 +23,8 @@
     "pages/student/recommendDetail",
     "pages/student/person",
     "pages/student/myerrors",
-    "pages/student/mypaper"
+    "pages/student/mypaper",
+    "pages/teacher/update"
   ],
   "usingComponents": {
     "van-field": "@vant/weapp/field/index",

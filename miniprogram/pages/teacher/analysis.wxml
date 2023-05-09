@@ -4,7 +4,7 @@
   <van-field
     model:value="{{name}}"
     placeholder="请输入用户名"
-    label="姓名："
+    label="班级名称："
     disabled
     left-icon="contact"
   />

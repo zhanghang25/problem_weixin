@@ -15,6 +15,19 @@ Page({
     testId: ''
 
   },
+  toUpdate(){
+    let that = this 
+    wx.navigateTo({
+      url: '/pages/teacher/update',
+      success: function(res){
+        res.eventChannel.emit("sendTest",{
+          data:true,
+          testId: that.data.testId
+        })
+      }
+    })
+  },
+
   async getConfirm(){
     console.log(111)
     await app.call({

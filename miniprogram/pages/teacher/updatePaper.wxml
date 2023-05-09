@@ -69,6 +69,6 @@
 </van-row>
 <van-row style="margin: 50rpx;display:block;">
 <van-col span="8" offset="8">
-  <van-button color="#E9724C">修改题目</van-button>
+  <van-button bind:click="toUpdate" color="#E9724C">修改题目</van-button>
 </van-col>
 </van-row>
