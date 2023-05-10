@@ -24,7 +24,8 @@
     "pages/student/person",
     "pages/student/myerrors",
     "pages/student/mypaper",
-    "pages/teacher/update"
+    "pages/teacher/update",
+    "pages/teacher/classReport"
   ],
   "usingComponents": {
     "van-field": "@vant/weapp/field/index",

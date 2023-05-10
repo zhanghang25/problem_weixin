@@ -126,6 +126,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "detail",
+          "pathName": "pages/teacher/detail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "11122",
+          "pathName": "pages/teacher/classReport",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

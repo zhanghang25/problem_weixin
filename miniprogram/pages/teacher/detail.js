@@ -15,9 +15,21 @@ Page({
     errors: "计算机网络，子网，IP"
   },
 
+  jumpToPerson(){
+    
+    wx.navigateTo({
+      url: '/pages/teacher/classReport',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
+  
   onLoad(options) {
 
   },
