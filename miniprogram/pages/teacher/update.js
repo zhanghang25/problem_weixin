@@ -106,7 +106,7 @@ Page({
     this.setData(this.data.list[0])
 
   },
-  convert(item){
+   convert(item){
     let c_item = {}
     c_item.type = item.type
     c_item.id = item.id
@@ -115,7 +115,7 @@ Page({
     c_item.order = item.disorder
     c_item.answerContent = item.answerContent
     c_item.questionDescribe = item.questionDescribe
-    c_item.keywords = "计算机历史"
+    c_item.keywords = item.keywords
     if(item.type == 1){
 
       let options = item.otherAnswer.split(",")
