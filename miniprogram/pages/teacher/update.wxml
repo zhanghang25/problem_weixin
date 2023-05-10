@@ -119,7 +119,6 @@ disabled="{{type == 1 }}"
     model:value="{{answerContent}}"
     placeholder="请输入正确答案"
     label="正确答案："
-    type="digit"
     left-icon="contact"
     autosize
   />
