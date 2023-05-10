@@ -112,7 +112,7 @@ Page({
     c_item.id = item.id
     c_item.source = item.source
     c_item.score = item.score
-    c_item.order = item.order
+    c_item.order = item.disorder
     c_item.answerContent = item.answerContent
     c_item.questionDescribe = item.questionDescribe
     c_item.keywords = "计算机历史"

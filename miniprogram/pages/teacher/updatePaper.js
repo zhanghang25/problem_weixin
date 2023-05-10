@@ -63,16 +63,23 @@ Page({
   onLoad(options) {
     let that = this ;
       const eventChannel = this.getOpenerEventChannel()
-      eventChannel.on('sendTest',function(data){
+      eventChannel.on('sendTest',async function(data){
         console.log(data)
-
+        const res = await app.call({
+          path: "/answers/avgScore",
+          data:{
+            testId:data.test.testId
+          },
+          method: "GET"
+        })
         that.setData({
           name: data.test.className,
           code: data.test.classId,
           count: data.test.paperCount,
           time: data.test.time,
           paperName: data.test.testName,
-          testId: data.test.testId
+          testId: data.test.testId,
+          total: res.allScore
         })
       })
   },
